@@ -46,19 +46,19 @@ const Team = () => {
         switch (accessLevel) {
           case "Admin":
             cargoIcon = <AdminPanelSettingsOutlinedIcon />;
-            cargoColor = colors.greenAccent[600];
+            cargoColor = colors.blueAccent[600];
             break;
           case "Gerente":
             cargoIcon = <SecurityOutlinedIcon />;
-            cargoColor = colors.greenAccent[700];
+            cargoColor = colors.blueAccent[700];
             break;
           case "Usuário":
             cargoIcon = <LockOpenOutlinedIcon />;
-            cargoColor = colors.greenAccent[700];
+            cargoColor = colors.blueAccent[700];
             break;
           default:
             cargoIcon = null;
-            cargoColor = colors.greenAccent[700];
+            cargoColor = colors.blueAccent[700];
             break;
         }
 
@@ -73,7 +73,7 @@ const Team = () => {
             borderRadius="4px"
           >
             {cargoIcon}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
+            <Typography color={colors.blueAccent[100]} sx={{ ml: "5px" }}>
               {accessLevel}
             </Typography>
           </Box>
@@ -113,11 +113,11 @@ const Team = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[700],
+            color: colors.blueAccent[500],
             fontWeight: "bold",
             "&:hover": {
               cursor: "pointer",
-              color: colors.greenAccent[400],
+              color: colors.blueAccent[400],
             },
           },
         }}
