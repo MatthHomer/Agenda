@@ -11,6 +11,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import ExitToApp from "@mui/icons-material/ExitToApp"
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -63,7 +64,7 @@ const Sidebar = () => {
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: "10px 0 20px 0",
+              margin: "10px 0px 20px 50px",
               color: colors.grey[100],
             }}
           >
@@ -118,7 +119,7 @@ const Sidebar = () => {
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Agenda"
-              to="/"
+              to="/Calendar"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -170,6 +171,13 @@ const Sidebar = () => {
               title="Questões e Respostas"
               to="/faq"
               icon={<HelpOutlineOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Sair"
+              to="/"
+              icon={<ExitToApp />}
               selected={selected}
               setSelected={setSelected}
             />

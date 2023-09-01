@@ -1,32 +1,81 @@
-import { Box, IconButton, useTheme } from "@mui/material";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
+import {
+  Box,
+  IconButton,
+  Typography,
+  useTheme,
+  InputBase,
+} from "@mui/material";
 import { ColorModeContext, tokens } from "../../theme";
-import InputBase from "@mui/material/InputBase";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import {MenuItem } from "react-pro-sidebar";
+import { Link } from "react-router-dom";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import SearchIcon from "@mui/icons-material/Search";
+
+const Item = ({ title, to, icon, selected, setSelected }) => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  
+  const handleClick = () => {
+    setSelected(title);
+  };
+  
+  return (
+    <MenuItem
+      active={selected === icon}
+      style={{
+        color: colors.grey[100],
+      }}
+      onClick={handleClick}
+    >
+      <Link to={to}>{icon}</Link>
+    </MenuItem>
+  );
+};
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+  const [selected, setSelected] = useState("Dashboard");
 
   return (
-    <Box display="flex" justifyContent="space-between" p={2}>
-      {/* SEARCH BAR */}
-      <Box
-        display="flex"
-        backgroundColor={colors.primary[400]}
-        borderRadius="3px"
-      >
-        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-        <IconButton type="button" sx={{ p: 1 }}>
-          <SearchIcon />
-        </IconButton>
+    <Box
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      p={2}
+    >
+      <Box display="flex" alignItems="center" borderLeft={50}>
+        <img
+          alt="logo"
+          width="auto"
+          height="auto"
+          src={`../../assets/logo.png`}
+          style={{ cursor: "pointer" }}
+        />
       </Box>
+
+      <Box display="flex" padding={1} paddingLeft={100}>
+        <Typography variant="body1" sx={{ marginRight: 2 }}>
+          Início
+        </Typography>
+        <Typography variant="body1" sx={{ marginRight: 2 }}>
+          Sobre
+        </Typography>
+        <Typography variant="body1" sx={{ marginRight: 2 }}>
+          Notícias
+        </Typography>
+        <Typography variant="body1" sx={{ marginRight: 2 }}>
+          Local
+        </Typography>
+        <Typography variant="body1" sx={{ marginRight: 2 }}>
+          Agendamentos
+        </Typography>
+      </Box>
+
+      <Box flex="1" />
 
       {/* ICONS */}
       <Box display="flex">
@@ -37,16 +86,15 @@ const Topbar = () => {
             <LightModeOutlinedIcon />
           )}
         </IconButton>
-        <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <SettingsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <PersonOutlinedIcon />
-        </IconButton>
       </Box>
+      
+      <Item
+        title="Entrar"
+        to="/Calendar"
+        icon={<PersonOutlinedIcon />}
+        selected={selected}
+        setSelected={setSelected}
+      />
     </Box>
   );
 };

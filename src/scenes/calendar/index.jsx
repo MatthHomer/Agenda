@@ -106,18 +106,7 @@ const Calendario = () => {
             select={lidarComCliqueNaData}
             eventClick={lidarComCliqueNoEvento}
             eventsSet={(eventos) => setEventosAtuais(eventos)}
-            initialEvents={[
-              {
-                id: "12315",
-                title: "Formatura",
-                date: "2022-09-14",
-              },
-              {
-                id: "5123",
-                title: "Casamento",
-                date: "2022-09-28",
-              },
-            ]}
+            /* initialEvents={[]} */
             locales={[ ptBrLocale ]} // Adicione o locale de tradução
             locale="pt-br" // Defina o locale como "pt-br"
           />
