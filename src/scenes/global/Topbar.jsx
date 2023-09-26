@@ -5,22 +5,21 @@ import {
   Typography,
   useTheme,
   InputBase,
+  Button,
 } from "@mui/material";
 import { ColorModeContext, tokens } from "../../theme";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import {MenuItem } from "react-pro-sidebar";
+import { MenuItem } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import WysiwygIcon from '@mui/icons-material/Wysiwyg';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  
+
   const handleClick = () => {
     setSelected(title);
   };
-  
+
   return (
     <MenuItem
       active={selected === icon}
@@ -43,11 +42,10 @@ const Topbar = () => {
   return (
     <Box
       display="flex"
-      justifyContent="space-between"
       alignItems="center"
-      p={2}
+      p={3}
     >
-      <Box display="flex" alignItems="center" borderLeft={50}>
+      <Box display="flex" alignItems="center" flex={2} >
         <img
           alt="logo"
           width="auto"
@@ -58,44 +56,45 @@ const Topbar = () => {
       </Box>
 
       <Box display="flex" padding={1} paddingLeft={100}>
-        <Typography variant="body1" sx={{ marginRight: 2 }}>
+        <Typography variant="body1" sx={{ marginRight: 4 }} fontSize={20}>
           Início
         </Typography>
-        <Typography variant="body1" sx={{ marginRight: 2 }}>
+        <Typography variant="body1" sx={{ marginRight: 4 }} fontSize={20}>
           Sobre
         </Typography>
-        <Typography variant="body1" sx={{ marginRight: 2 }}>
+        <Typography variant="body1" sx={{ marginRight: 4 }} fontSize={20}>
           Notícias
         </Typography>
-        <Typography variant="body1" sx={{ marginRight: 2 }}>
+        <Typography variant="body1" sx={{ marginRight: 4 }} fontSize={20}>
           Local
         </Typography>
-        <Typography variant="body1" sx={{ marginRight: 2 }}>
+        <Typography variant="body1" sx={{ marginRight: 4 }} fontSize={20}>
           Agendamentos
         </Typography>
       </Box>
 
-      <Box flex="1" />
-
       {/* ICONS */}
-      <Box display="flex">
-        <IconButton onClick={colorMode.toggleColorMode}>
-          {theme.palette.mode === "dark" ? (
-            <DarkModeOutlinedIcon />
-          ) : (
-            <LightModeOutlinedIcon />
-          )}
-        </IconButton>
+      <Box flex={1}>
+        <Link to="/calendar">
+          <WysiwygIcon
+            title="Entrar"
+            selected={selected}
+            setSelected={setSelected}
+          />
+        </Link>
       </Box>
-      
-      <Item
-        title="Entrar"
-        to="/Calendar"
-        icon={<PersonOutlinedIcon />}
-        selected={selected}
-        setSelected={setSelected}
-      />
+
+      <Box>
+      <section class="home" id="home">
+                <div class="home__data">
+                    <div class="banner-wrapper">
+                    </div>
+                </div>
+
+            </section>
+      </Box>
     </Box>
+
   );
 };
 

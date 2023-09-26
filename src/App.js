@@ -18,10 +18,8 @@ function App() {
   const location = useLocation();
 
   // Determine whether to show the sidebar based on the route
-  const shouldShowSidebar = location.pathname !== "/";
-
-  // Determine whether to show the Topbar based on the route
-  const shouldShowTopbar = location.pathname === "/";
+  const shouldShowSidebar =
+    location.pathname !== "/" && location.pathname !== "/site";
 
   return (
     <ColorModeContext.Provider value={colorMode}>
@@ -30,8 +28,8 @@ function App() {
         <div className="app">
           {shouldShowSidebar && <Sidebar isSidebar={isSidebar} />}
           <main className="content">
-            {shouldShowTopbar && <Topbar setIsSidebar={setIsSidebar} />}
             <Routes>
+              <Route path="" element={<Site />} /> {/* Rota padrão */}
               <Route path="/site" element={<Site />} />
               <Route path="/calendar" element={<Calendario />} />
               <Route path="/form" element={<Form />} />

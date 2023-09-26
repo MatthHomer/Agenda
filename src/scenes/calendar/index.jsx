@@ -49,7 +49,6 @@ const Calendario = () => {
 
   return (
     <Box m="20px">
-      <Header title="Calendário" subtitle="Seus eventos estão aqui" />
 
       <Box display="flex" justifyContent="space-between">
         {/* BARRA LATERAL DO CALENDÁRIO */}

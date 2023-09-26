@@ -176,7 +176,7 @@ const Sidebar = () => {
             />
             <Item
               title="Sair"
-              to="/"
+              to="/site"
               icon={<ExitToApp />}
               selected={selected}
               setSelected={setSelected}

@@ -101,7 +101,6 @@ const Team = () => {
 
   return (
     <Box m="20px">
-      <Header title="Time" subtitle="Gerenciamento de Mebros do Time" />
       <Box
         m="40px 0 0 0"
         height="75vh"
