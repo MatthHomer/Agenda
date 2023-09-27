@@ -14,6 +14,9 @@ import { MenuItem } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import WysiwygIcon from '@mui/icons-material/Wysiwyg';
 import ScrollReveal from "scrollreveal";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -38,7 +41,6 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 
 const Site = () => {
   const theme = useTheme();
-  const [selected, setSelected] = useState("Dashboard");
 
   return (
     <>
@@ -46,7 +48,7 @@ const Site = () => {
       <header class="l-header">
         <nav class="nav bd-grid">
           <div>
-            <img src="/assets/img/logo.png" alt="" href="" class="logotipo"></img>
+            <img src="/assets/img/LOGO_MENUBAR.png" alt="" href="" class="logotipo"></img>
           </div>
 
           <div class="nav__menu" id="nav-menu">
@@ -56,14 +58,15 @@ const Site = () => {
               <li class="nav__item"><a href="#skills" class="nav__link">Acontecimentos</a></li>
               <li class="nav__item"><a href="#work" class="nav__link">Espaço de Eventos</a></li>
               <li class="nav__item"><a href="#contact" class="nav__link">Agende Seu Evento</a></li>
-              <li class="nav__item"><a href="#contact" class="nav__link"><Link to="/calendar">
-                  <WysiwygIcon
-                    title="Entrar"
-                    selected={selected}
-                    setSelected={setSelected}
-                  />
-                </Link> </a></li>
-                
+              <li class="nav__item"><a class="nav__link">
+                    <Link to="/calendar">
+                    <WysiwygIcon
+                      title="Entrar"
+                      style={{ color: '#FFFF' }}
+                    />
+                  </Link> 
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -160,12 +163,12 @@ const Site = () => {
         </section>
         <footer class="footer">
           <div class="footer_img">
-            <img src="/assets/img/logo_endbar.png" alt=""></img>
+            <img src="/assets/img/LOGO_ENDBAR.png" alt=""></img>
           </div>
           <div class="footer__social">
-            <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-whatsapp' ></i></a>
+            <a href="#" class="footer__icon"><FacebookIcon /><i class='bx bxl-facebook' ></i></a>
+            <a href="#" class="footer__icon"><InstagramIcon /><i class='bx bxl-instagram' ></i></a>
+            <a href="#" class="footer__icon"><WhatsAppIcon /><i class='bx bxl-whatsapp' ></i></a>
           </div>
 
           <p class="footer__copy">&#169; 2023 ADUNISC. Todos direitos reservados. Desenvolvido por Quidittas Web Soluções</p>
